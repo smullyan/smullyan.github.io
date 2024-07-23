@@ -40,6 +40,9 @@ function calculateTax() {
   } else if (!isNaN(totalAmount)) {
     netAmount = totalAmount * 100 / (TAX_RATE + 100);
     taxAmount = totalAmount * TAX_RATE / (TAX_RATE + 100);
+  } else if (!isNaN(taxAmount)) {
+    netAmount = taxAmount * 100 / TAX_RATE;
+    totalAmount = taxAmount * (TAX_RATE + 100) / TAX_RATE;
   }
 
   document.getElementById('taxAmount').value = `$${taxAmount.toFixed(2)}`;
